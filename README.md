@@ -2,8 +2,6 @@
 [![Discord](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/NDYAEgD8ej)
 [![NuGet stable version](https://badgen.net/nuget/v/tdlive)](https://nuget.org/packages/tdlive)
 
-# NOTE! This repo is not yet for public use
-
 # Telldus Live Console application
 
 Telldus Live Console application is a cross-platform tool for any platform that runs .NET Runtime (Windows, Linux & macOS).
