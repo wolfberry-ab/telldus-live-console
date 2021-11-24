@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>tdlive</AssemblyName>
+    <Description>Command line tool for Telldus Live API Smart Home</Description>
+    <PackageReleaseNotes>More amazing than previous release!</PackageReleaseNotes>
+    <Company>Wolfberry AB</Company>
+    <Authors>Mikael Johansson</Authors>
+    <PackageId>tdlive</PackageId>
+    <PackageTags>Telldus Live, Tellstick, Proove</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Version>0.0.0</Version>
+    <!--<PublishSingleFile>true</PublishSingleFile>-->
+    <!-- <SelfContained>true</SelfContained> -->
+    <!--<RuntimeIdentifier>win-x86</RuntimeIdentifier>-->
+    <!-- <PublishReadyToRun>true</PublishReadyToRun> -->
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>tdlive</ToolCommandName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+    <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.21308.1" />
+    <PackageReference Include="Wolfberry.TelldusLive" Version="1.0.16" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="out\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="out\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="out\**" />
+  </ItemGroup>
+
+</Project>
