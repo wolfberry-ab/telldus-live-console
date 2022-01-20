@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Wolfberry.TelldusLive.Console": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "commandLineArgs": "--help"
+    }
+  }
+}

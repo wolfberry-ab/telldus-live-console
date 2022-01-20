@@ -33,6 +33,7 @@ _/  |_  __| _/|  | |__|__  __ ____
            \/                    \/
                         by Wolfberry";
                     Printer.WriteLine(logo);
+                    Printer.WriteLine(string.Empty);
                     Printer.WriteLine("Type --help to see available options.");
                 })
             };

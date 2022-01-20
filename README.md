@@ -13,6 +13,8 @@ It's based on Wolfberry.TelldusLive library which supports all Telldus Live publ
 ## Install .NET
 
 .NET 5 or later is needed to install and run the tdlive tool. Follow Microsoft's guide to install it in your operating system: https://docs.microsoft.com/en-us/dotnet/core/install/
+
+
 ## Install tdlive tool
 
 Install it globally on the computer so it is accessible from any folder:
