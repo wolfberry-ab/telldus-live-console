@@ -10,3 +10,6 @@ bin/
 .idea/
 
 out/
+
+# Secrets
+td-live-config.json
