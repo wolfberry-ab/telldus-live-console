@@ -31,6 +31,12 @@ Uninstall with:
 dotnet tool uninstall -g tdlive
 ```
 
+Update to latest version:
+
+```shell
+dotnet tool update -g tdlive
+```
+
 Make the dotnet tool(s) available by adding to the path:
 
 macOS/Linux: `export PATH=$PATH:$HOME/.dotnet/tools`
