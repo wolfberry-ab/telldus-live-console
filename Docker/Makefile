@@ -1,4 +1,4 @@
-CONFIG_FILENAME=td-live-config.json
+CONFIG_FILENAME=tdlive.json
 HOST_CONFIG=$(HOME)/$(CONFIG_FILENAME)
 HOST_CONFIG=$(shell pwd)/$(CONFIG_FILENAME)
 

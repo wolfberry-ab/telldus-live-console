@@ -4,7 +4,7 @@
 
 Install PowerShell on macOS: `brew install --cask powershell`
 
-Login once or update ~/.config/td-live-config.json with required
+Login once or update ~/.config/tdlive.json with required
 credentials.
 
 ```

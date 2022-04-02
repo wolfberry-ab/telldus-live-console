@@ -12,4 +12,4 @@ bin/
 out/
 
 # Secrets
-td-live-config.json
+tdlive.json

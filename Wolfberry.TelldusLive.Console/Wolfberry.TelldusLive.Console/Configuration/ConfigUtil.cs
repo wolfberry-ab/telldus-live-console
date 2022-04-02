@@ -7,14 +7,14 @@ namespace Wolfberry.TelldusLive.Console.Configuration
 {
     public static class ConfigUtil
     {
-        private const string FileName = "td-live-config.json";
+        private const string FileName = "tdlive.json";
         /// <summary>
         /// Home directory, e.g. c:\Users\bob (Windows) or /root (Linux Docker)
         /// </summary>
         private static readonly string ConfigFileFolder = Environment.GetFolderPath(
             Environment.SpecialFolder.UserProfile);
         private static readonly string ConfigFile = Path.Combine(ConfigFileFolder, FileName);
-        
+
         /// <summary>
         /// Write configuration in JSON format
         /// </summary>
@@ -24,7 +24,7 @@ namespace Wolfberry.TelldusLive.Console.Configuration
             File.WriteAllText(ConfigFile, json);
             Printer.WriteLine($"saved to {ConfigFile}");
         }
-        
+
         public static IConfiguration ReadConfiguration()
         {
             var configuration = new ConfigurationBuilder()

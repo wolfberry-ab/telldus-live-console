@@ -4,7 +4,9 @@
 
 # Telldus Live Console application
 
-Telldus Live Console application is a cross-platform tool for any platform that runs .NET Runtime (Windows, Linux & macOS).
+Telldus Live Console application is a cross-platform tool that can control your [Telldus Live](https://telldus.com/telldus-live/) smart home (controllers, devices, sensors, events, ...).
+
+tdlive can be used in any platform that runs .NET Runtime (Windows, Linux & macOS). See [this README](Docker/README.md) how to run it from a Docker container.
 
 It's based on Wolfberry.TelldusLive library which supports all Telldus Live public API's (~180 functions).
 
@@ -38,22 +40,23 @@ Windows: `set PATH=$PATH:%USERPROFILE%\.dotnet\tools`
 
 Login and store credentials:
 ```shell
-dotnet tdlive.dll login --publicKey asdfefef --privateKey efef3f --token f3f33f2f --tokenSecret af5f5af5
+dotnet tdlive login --publicKey *** --privateKey *** --token *** --tokenSecret ***
 ```
+where *** is your keys received from your [Telldus Live API](https://api.telldus.com/) account.
 
 Show sensor list options:
 ```shell
-dotnet tdlive.dll sensors list --help
+dotnet tdlive sensors list --help
 ```
 
 List all sensors:
 ```shell
-dotnet tdlive.dll sensors list
+dotnet tdlive sensors list
 ```
 
 Log out (remove stored credentials):
 ```shell
-dotnet tdlive.dll logout
+dotnet tdlive logout
 ```
 
 # More information
