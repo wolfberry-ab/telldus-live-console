@@ -2,14 +2,15 @@
 using System.CommandLine;
 using System.CommandLine.Invocation;
 using Newtonsoft.Json;
+using Wolfberry.TelldusLive.Console.Client;
+using Wolfberry.TelldusLive.Console.Configuration;
 using Wolfberry.TelldusLive.Console.Console;
-using Wolfberry.TelldusLive.Repositories;
 
 namespace Wolfberry.TelldusLive.Console.Sensors
 {
     public static class SensorInfoCommands
     {
-        public static Command Create(ISensorRepository repository)
+        public static Command Create(IAuthConfiguration configuration)
         {
             var command = new Command("info", "Get information of specific sensor");
             command.AddOption(new Option<string>(
@@ -25,6 +26,9 @@ namespace Wolfberry.TelldusLive.Console.Sensors
             command.Handler = CommandHandler.Create<string, bool>(async (
                 sensorId, includeUnit) =>
             {
+                var client = ClientFactory.Create(configuration);
+                var repository = client.Sensors;
+
                 try
                 {
                     var info = await repository.GetSensorInfoAsync(sensorId, includeUnit);

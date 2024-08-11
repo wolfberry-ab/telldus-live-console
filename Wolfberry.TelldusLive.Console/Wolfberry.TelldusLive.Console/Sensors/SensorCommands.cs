@@ -1,5 +1,6 @@
 ﻿using System.CommandLine;
 using System.CommandLine.Invocation;
+using Wolfberry.TelldusLive.Console.Configuration;
 using Wolfberry.TelldusLive.Console.Console;
 using Wolfberry.TelldusLive.Repositories;
 
@@ -7,7 +8,7 @@ namespace Wolfberry.TelldusLive.Console.Sensors
 {
     public static class SensorCommands
     {
-        public static Command Create(ISensorRepository repository)
+        public static Command Create(IAuthConfiguration configuration)
         {
             var command = new Command(
                 "sensors",
@@ -20,9 +21,9 @@ namespace Wolfberry.TelldusLive.Console.Sensors
                 })
             };
 
-            command.AddCommand(SensorListCommand.Create(repository));
-            command.AddCommand(SensorInfoCommands.Create(repository));
-            command.AddCommand(SensorHistoryCommand.Create(repository));
+            command.AddCommand(SensorListCommand.Create(configuration));
+            command.AddCommand(SensorInfoCommands.Create(configuration));
+            command.AddCommand(SensorHistoryCommand.Create(configuration));
 
             return command;
         }

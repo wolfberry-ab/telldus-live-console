@@ -2,6 +2,8 @@ using System;
 using System.CommandLine;
 using System.CommandLine.Invocation;
 using Newtonsoft.Json;
+using Wolfberry.TelldusLive.Console.Client;
+using Wolfberry.TelldusLive.Console.Configuration;
 using Wolfberry.TelldusLive.Console.Console;
 using Wolfberry.TelldusLive.Repositories;
 
@@ -9,7 +11,7 @@ namespace Wolfberry.TelldusLive.Console.Devices
 {
     public static class DeviceInfoCommand
     {
-        public static Command Create(IDeviceRepository repository)
+        public static Command Create(IAuthConfiguration configuration)
         {
             var command = new Command("info", "Get information of specific device");
             command.AddOption(new Option<string>(
@@ -37,6 +39,9 @@ namespace Wolfberry.TelldusLive.Console.Devices
             {
                 try
                 {
+                    var client = ClientFactory.Create(configuration);
+                    var repository = client.Devices;
+
                     var info = await repository.GetDeviceInfoAsync(deviceId, uuid, supportedMethods, extras);
                     Printer.WriteLine($"{JsonConvert.SerializeObject(info, Formatting.Indented)}");
                 }

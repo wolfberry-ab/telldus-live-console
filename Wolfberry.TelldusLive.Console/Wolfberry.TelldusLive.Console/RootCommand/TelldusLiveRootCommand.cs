@@ -12,12 +12,6 @@ namespace Wolfberry.TelldusLive.Console.RootCommand
         public static System.CommandLine.RootCommand Create(IConfigurationManager configurationManager)
         {
             var configuration = configurationManager.GetAuthConfiguration();
-            
-            var client = new TelldusLiveClient(
-                configuration.PublicKey,
-                configuration.PrivateKey,
-                configuration.Token,
-                configuration.TokenSecret);
 
             var rootCommand = new System.CommandLine.RootCommand
             {
@@ -38,10 +32,10 @@ _/  |_  __| _/|  | |__|__  __ ____
                 })
             };
 
-            rootCommand.AddCommand(SensorCommands.Create(client.Sensors));
+            rootCommand.AddCommand(SensorCommands.Create(configuration));
             rootCommand.AddCommand(LoginCommand.Create(configurationManager));
             rootCommand.AddCommand(LogoutCommand.Create(configurationManager));
-            rootCommand.AddCommand(DeviceCommands.Create(client.Devices));
+            rootCommand.AddCommand(DeviceCommands.Create(configuration));
             return rootCommand;
         }
     }

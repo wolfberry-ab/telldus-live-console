@@ -2,6 +2,8 @@ using System;
 using System.CommandLine;
 using System.CommandLine.Invocation;
 using Newtonsoft.Json;
+using Wolfberry.TelldusLive.Console.Client;
+using Wolfberry.TelldusLive.Console.Configuration;
 using Wolfberry.TelldusLive.Console.Console;
 using Wolfberry.TelldusLive.Models;
 using Wolfberry.TelldusLive.Repositories;
@@ -10,7 +12,7 @@ namespace Wolfberry.TelldusLive.Console.Devices
 {
     public static class DeviceCommandCommand
     {
-        public static Command Create(IDeviceRepository repository)
+        public static Command Create(IAuthConfiguration configuration)
         {
             var command = new Command("command", "Send command to device");
             command.AddOption(new Option<string>(
@@ -31,6 +33,9 @@ namespace Wolfberry.TelldusLive.Console.Devices
             command.Handler = CommandHandler.Create<string, int, string>(async (
                 deviceId, method, value) =>
             {
+                var client = ClientFactory.Create(configuration);
+                var repository = client.Devices;
+
                 try
                 {
                     var methodEnum = (DeviceMethod)Enum.ToObject(typeof(DeviceMethod), method);
