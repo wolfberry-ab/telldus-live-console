@@ -2,14 +2,15 @@
 using System.CommandLine;
 using System.CommandLine.Invocation;
 using Newtonsoft.Json;
+using Wolfberry.TelldusLive.Console.Client;
+using Wolfberry.TelldusLive.Console.Configuration;
 using Wolfberry.TelldusLive.Console.Console;
-using Wolfberry.TelldusLive.Repositories;
 
 namespace Wolfberry.TelldusLive.Console.Sensors
 {
     public static class SensorListCommand
     {
-        public static Command Create(ISensorRepository repository)
+        public static Command Create(IAuthConfiguration configuration)
         {
             var command = new Command("list", "List sensors");
             command.AddOption(new Option<bool>(
@@ -34,6 +35,9 @@ namespace Wolfberry.TelldusLive.Console.Sensors
             command.Handler = CommandHandler.Create<bool, bool, bool, bool>(async (
                 includeIgnored, includeValues, includeScale, includeUnit) =>
             {
+                var client = ClientFactory.Create(configuration);
+                var repository = client.Sensors;
+
                 try
                 {
                     var sensors =
