@@ -20,6 +20,7 @@
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>tdlive</ToolCommandName>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <ApplicationIcon>wolfberry.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -42,6 +43,12 @@
 
   <ItemGroup>
     <None Remove="out\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wolfberry.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
