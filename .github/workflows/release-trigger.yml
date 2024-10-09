@@ -59,18 +59,18 @@ jobs:
     steps:
 
       - name: Download artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: drop
           path: './out'
 
       - name: Setup .NET 8
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
 
       - name: Upload NuGet for test
-        uses: Azure/cli@v1
+        uses: Azure/cli@v2
         with:
           azcliversion: 2.0.72
           inlineScript: |
